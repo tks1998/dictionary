@@ -1,0 +1,23 @@
+{% extends "pages/base.html" %}
+{% load static %}
+{% block title %}HOME{% endblock %}
+{% block style %}
+<link href="{% static 'css/style.css' %}" rel="stylesheet" type="text/css" />
+{% endblock %}
+{% block content %}
+<div class="container">
+    <div class="d-flex justify-content-center">
+        <form action="search" method="post">
+
+            {% csrf_token %}
+
+            <div class="searchbar">
+                <input class="search_input" type="text" name="chuoi" placeholder="Search...">
+                <div class="search_icon">
+                    <i class="fas fa-search"></i>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}
