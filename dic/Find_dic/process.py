@@ -44,7 +44,7 @@ def find_prefix(root, prefix: str):
                 node = child
                 break
         if char_not_found:
-            return -1
+            return -1 
             #return node.recomend
     return node.index
 def test(find_name):
