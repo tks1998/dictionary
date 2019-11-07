@@ -26,6 +26,7 @@ def add(root, word: str, index=-1):
             new_node = TrieNode(char)
             node.children.append(new_node)
             node = new_node
+    print(word,index)
     node.index = index
     return 
 
@@ -102,7 +103,7 @@ def get_request_and_add(name:str,mean:str):
     
     f.close()
     # add new word 
-    add(config.root,mean,idx)
+    add(config.root,name,idx)
     # save struct root with pickle file 
     pickle_out = open("root.pickle","wb")
     pickle.dump(config.root, pickle_out)
