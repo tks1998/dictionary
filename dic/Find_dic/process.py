@@ -9,7 +9,6 @@ class TrieNode(object):
     def __init__(self, char: str):
         self.char = char
         self.children = []
-        self.word_finished = False
         self.index = -1
 
 
@@ -27,7 +26,6 @@ def add(root, word: str, index=-1):
             new_node = TrieNode(char)
             node.children.append(new_node)
             node = new_node
-    node.word_finished = True
     node.index = index
 
 
@@ -49,7 +47,6 @@ def find_prefix(root, prefix: str):
             # return node.recomend
     return node.index
 def delete_word(root,prefix:str):
-    
     node = root
     if not root.children:
         return False
@@ -64,8 +61,8 @@ def delete_word(root,prefix:str):
                 break
         if char_not_found:
             return False   # It not in dictionary -> don't sucess delete it
-    if node.word_finished == 1:
-        node.word_finished = -1
+    if node.index != -1:
+        node.index = -1
         return True
     return False   
 
@@ -87,12 +84,21 @@ def get_request_and_delete(name):
     if (config.Build_Tree == False):
         config.root = make_tree()
         config.Build_Tree = True
+  
+    print(delete_word(config.root,name))
+
+    pickle_out = open("root.pickle","wb")   # cap nhat -> ghi vao file pickle
+    pickle.dump(config.root, pickle_out)
+    pickle_out.close()
     return {"status":delete_word(config.root,name)}
 def get_request_and_add(name,mean:str):
     if (config.Build_Tree == False):
         config.root = make_tree()
         config.Build_Tree = True
     add(config.root,mean)
+    pickle_out = open("root.pickle","wb")
+    pickle.dump(config.root, pickle_out)
+    pickle_out.close()
     return  
 def get_request_and_find(find_name):
     if (config.Build_Tree == False):
@@ -110,6 +116,9 @@ def get_request_and_find(find_name):
     f.seek(idx)
     mean = f.readline().split(':')[1]
     f.close()
+    pickle_out = open("root.pickle","wb")
+    pickle.dump(config.root, pickle_out)
+    pickle_out.close()
     return {
         "name": find_name,
         "mean": mean

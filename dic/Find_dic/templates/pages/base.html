@@ -64,7 +64,7 @@
     </div>
     <div>
             <div class="add" style="display: none;">
-                    <form class="form-inline ml-auto" action="submit" method="post"></form>
+                    <form class="form-inline ml-auto" action="submit" method="post">
                     <div class="container mt-4">
                         <label for="word">Từ vựng:</label>
                         <input type="text" class="form-control" name="wordadd">
@@ -77,7 +77,8 @@
                     </form>
                 </div>
                 <div class="edit" style="display: none;">
-                        <form class="form-inline ml-auto" action="submit" method="post"></form>
+                        <form class="form-inline ml-auto" action="submit" method="post">
+                        {% csrf_token %}
                         <div class="container mt-4">
                             <label for="word">Từ vựng:</label>
                             <input type="text" class="form-control" name="wordedit">
@@ -90,7 +91,7 @@
                         </form>
                 </div>
                 <div class="del" style="display: none;">
-                        <form class="form-inline ml-auto" action="submit" method="post"></form>
+                        <form class="form-inline ml-auto" action="submit" method="post">
                         {% csrf_token %}
                         <div class="container mt-4">
                             <label for="word">Từ vựng:</label>
