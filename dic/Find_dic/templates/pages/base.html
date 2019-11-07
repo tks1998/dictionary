@@ -25,13 +25,29 @@
 <body>
         
 
-
+        <!-- <script>
+                $(document).ready(function(){
+                    $(".edit").hide();
+                    $(".del").hide();
+                    $(".add").hide();
+                });
+                </script> -->
     <div style="background: rgb(14, 30, 100); " class="p-2">
         <nav class="navbar navbar-expand-lg navbar-dark indigo mb-2">
 
                 <!-- Navbar brand -->
                 <a class="navbar-brand" href="/">Tra cứu từ điển</a>
-              
+                <div class="btn-group">
+                        <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Action
+                        </button>
+                            <div class="dropdown-menu">
+                            <a class="dropdown-item" id="add">Thêm từ</a>
+                            <a class="dropdown-item" id="edit">Sửa từ</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" id="del">Xóa từ</a>
+                            </div>
+                </div>
                 <!-- Collapsible content -->
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
               
@@ -41,16 +57,82 @@
                       <input class="form-control" type="text" name="chuoi" placeholder="Search" aria-label="Search">
                     </div>
                     <button href="#!" class="btn btn-outline-white btn-md my-0 ml-sm-2" type="submit">Search</button>
-                  </form>
+                </form>
               
                 </div>
         </nav>
     </div>
-    <div class="margin"></div>
+    <div>
+            <div class="add" style="display: none;">
+                    <form class="form-inline ml-auto" action="submit" method="post"></form>
+                    <div class="container mt-4">
+                        <label for="word">Từ vựng:</label>
+                        <input type="text" class="form-control" name="wordadd">
+                        
+                        <label for="meaning">Nghĩa của từ:</label>
+                        <input type="text" class="form-control" name="meaningadd">
+            
+                        <button name="actionw" class="btn btn-light mt-1" type="submit">OK</button>
+                    </div>
+                    </form>
+                </div>
+                <div class="edit" style="display: none;">
+                        <form class="form-inline ml-auto" action="submit" method="post"></form>
+                        <div class="container mt-4">
+                            <label for="word">Từ vựng:</label>
+                            <input type="text" class="form-control" name="wordedit">
+                            
+                            <label for="meaning">Sửa nghĩa của từ:</label>
+                            <input type="text" class="form-control" name="meaningedit">
+                
+                            <button name="actionw" class="btn btn-light mt-1" type="submit">OK</button>
+                        </div>
+                        </form>
+                </div>
+                <div class="del" style="display: none;">
+                        <form class="form-inline ml-auto" action="submit" method="post"></form>
+                        <div class="container mt-4">
+                            <label for="word">Từ vựng:</label>
+                            <input type="text" class="form-control" name="worddel">
+                            <button name="actionw" class="btn btn-light mt-1" type="submit">OK</button>
+                        </div>
+                        </form>
+                </div>
+    </div>
+    
+    
     {% block content %}
 
     {% endblock %}
-    <div class="margin"></div>
+    <script>
+        $(document).ready(function(){
+        $("#add").click(function(){
+            $(".edit").hide(0);
+            $(".del").hide(0);
+            $(".add").show(0);
+        });
+        $("#edit").click(function(){
+            $(".add").hide(0);
+            $(".del").hide(0);
+            $(".edit").show(0);
+        });
+        $("#del").click(function(){
+            $(".add").hide(0);
+            $(".edit").hide(0);
+            $(".del").show(0);
+        });
+        });
+    </script>
+    <script>
+        $(document).ready(function(){
+        $('button[name="actionw"]').click(function(){
+            alert("Đã nhận thao tác.");
+            $(".add").hide(0);
+            $(".edit").hide(0);
+            $(".del").hide(0);
+        });
+        });
+    </script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
