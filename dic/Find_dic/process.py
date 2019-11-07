@@ -94,6 +94,8 @@ def get_request_and_add(name:str,mean:str):
     if (config.Build_Tree == False):
         config.root = make_tree()
         config.Build_Tree = True
+    if find_prefix(config.root,name) != -1:
+        return 
     # add word to file data
     new_word = name+":"+mean+"\n"
     filePath = os.path.join(os.path.dirname(__file__), "data.txt")

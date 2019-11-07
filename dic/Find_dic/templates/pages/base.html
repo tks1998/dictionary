@@ -43,7 +43,6 @@
                         </button>
                             <div class="dropdown-menu">
                             <a class="dropdown-item" id="add">Thêm từ</a>
-                            <a class="dropdown-item" id="edit">Sửa từ</a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item" id="del">Xóa từ</a>
                             </div>
@@ -64,7 +63,7 @@
     </div>
     <div>
             <div class="add" style="display: none;">
-                    <form class="form-inline " action="submit" method="post">
+                    <form action="submit" method="post">
                      {% csrf_token %}
                     <div class="container mt-4">
                         <label for="word">Từ vựng:</label>
@@ -78,7 +77,7 @@
                     </form>
                 </div>
                 <div class="del" style="display: none;">
-                        <form class="form-inline " action="submit" method="post">
+                        <form action="submit" method="post">
                         {% csrf_token %}
                         <div class="container mt-4">
                             <label for="word">Từ vựng:</label>
