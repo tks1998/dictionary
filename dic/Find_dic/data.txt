@@ -1,0 +1,33 @@
+go:di
+sleep:ngu
+eat:an
+president:chu tich
+brush: danh rang
+dust: quet bui
+eat: an
+shave: cao rau
+sit: ngoi
+tie: buoc day giay
+throw: nem
+wave: van tay
+yawn: ngap
+homework: bai tap ve nha
+go home: ve nha
+get up: thuc day
+go to bed: di ngu
+go shopping: di mua sam
+hang out: di choi
+read: doc 
+relax: thu gian
+study: hoc
+drink: do uong
+work: lam viec
+clean: lau don 
+ecotourism: du lich sinh thai
+guide: huong dan vien du lich
+hot spot: noi hoat dong giai tri
+tourist: du khach
+low season: nguoi van hanh
+travel agency: dai ly du lich
+budget: gia re 
+amazing: ngac nhien

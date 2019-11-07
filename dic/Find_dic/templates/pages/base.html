@@ -91,6 +91,7 @@
                 </div>
                 <div class="del" style="display: none;">
                         <form class="form-inline ml-auto" action="submit" method="post"></form>
+                        {% csrf_token %}
                         <div class="container mt-4">
                             <label for="word">Từ vựng:</label>
                             <input type="text" class="form-control" name="worddel">
@@ -98,6 +99,7 @@
                         </div>
                         </form>
                 </div>
+               
     </div>
     
     
