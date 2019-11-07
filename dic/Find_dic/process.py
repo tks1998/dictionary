@@ -64,7 +64,7 @@ def make_tree():
         line = f.readline()
         if not line:
             break
-        name = line.split(' ')[0]
+        name = line.split(':')[0]
         add(root, name, offset)
     return root
 
@@ -73,7 +73,7 @@ def test(find_name):
     if (config.Build_Tree == False):
         config.root = make_tree()
         config.Build_Tree = True
-
+    
     idx = find_prefix(config.root, find_name)
     if idx == -1:
         return {
@@ -83,34 +83,9 @@ def test(find_name):
     filePath = os.path.join(os.path.dirname(__file__), "data2.txt")
     f = open(filePath, 'r')
     f.seek(idx)
-    mean = f.readline().split()[1]
+    print(idx)
+    mean = f.readline().split(':')[1]
     return {
         "name": find_name,
         "mean": mean
     }
-
-# print(test('president'))
-
- # filePath = os.path.join(os.path.dirname(__file__),"trie.pickle")
-    # f=open(filePath,'rb')
-
-    # root = pickle.load(f)
-
-    # root = TrieNode('*')
-    # for x in dataset:
-    #     add(root,dataset[x]["name"],x)
-    # pickle_out = open("trie.pickle","wb")
-    # pickle.dump(root, pickle_out)
-    # pickle_out.close()
-    # idx = None
-    # idx = find_prefix(root,find_name)
-
-    # if idx == -1:
-    #     return {
-    #         "name":find_name,
-    #         "mean":"not found"
-    #     }
-    # return {
-    #     "name":dataset[idx]["name"],
-    #     "mean":dataset[idx]["mean"]
-    # }

@@ -14,7 +14,7 @@ html {
 .searchbar {
     margin-top: 20px;
     height: 60px;
-    background: rgb(0, 0, 0);
+    background: rgb(19, 65, 216);
     border-radius: 30px;
     padding: 10px;
     box-shadow: 5px 2px 5px rgb(196, 196, 196);
@@ -24,7 +24,7 @@ html {
     color: white;
     border: 0;
     outline: 0;
-    background: rgb(0, 0, 0);
+    background: rgb(19, 65, 216);
     width: 0;
     line-height: 40px;
     transition: width 0.4s linear;

@@ -1,3 +1,4 @@
-go di
-sleep ngu
-eat an
+go:di
+sleep:ngu
+eat:an
+president:chu tich
