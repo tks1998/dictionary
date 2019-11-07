@@ -31,3 +31,9 @@ low season: nguoi van hanh
 travel agency: dai ly du lich
 budget: gia re 
 amazing: ngac nhien
+dark:toi
+s:se
+s:se
+s:se
+sen:s
+quat:mat qua

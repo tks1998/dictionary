@@ -13,6 +13,7 @@ class TrieNode(object):
 
 
 def add(root, word: str, index=-1):
+    print(index)
     node = root
     for char in word:
         found_in_child = False
@@ -20,13 +21,13 @@ def add(root, word: str, index=-1):
             if child.char == char:
                 node = child
                 found_in_child = True
-
                 break
         if not found_in_child:
             new_node = TrieNode(char)
             node.children.append(new_node)
             node = new_node
     node.index = index
+    return 
 
 
 def find_prefix(root, prefix: str):
@@ -84,18 +85,25 @@ def get_request_and_delete(name):
     if (config.Build_Tree == False):
         config.root = make_tree()
         config.Build_Tree = True
-  
-    print(delete_word(config.root,name))
-
     pickle_out = open("root.pickle","wb")   # cap nhat -> ghi vao file pickle
     pickle.dump(config.root, pickle_out)
     pickle_out.close()
     return {"status":delete_word(config.root,name)}
-def get_request_and_add(name,mean:str):
+def get_request_and_add(name:str,mean:str):
     if (config.Build_Tree == False):
         config.root = make_tree()
         config.Build_Tree = True
-    add(config.root,mean)
+    # add word to file data
+    new_word = name+":"+mean+"\n"
+    filePath = os.path.join(os.path.dirname(__file__), "data.txt")
+    f = open(filePath, 'a')
+    idx =f.tell()
+    f.writelines(new_word)
+    
+    f.close()
+    # add new word 
+    add(config.root,mean,idx)
+    # save struct root with pickle file 
     pickle_out = open("root.pickle","wb")
     pickle.dump(config.root, pickle_out)
     pickle_out.close()
