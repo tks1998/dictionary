@@ -22,7 +22,6 @@ def add(root, word: str, index=-1):
         found_in_child = False
         for child in node.children:
             if child.char == char:
-                child.counter += 1
                 node = child
                 found_in_child = True
 
@@ -52,8 +51,25 @@ def find_prefix(root, prefix: str):
             return -1
             # return node.recomend
     return node.index
-
-
+def delete_word(root,prefix:str):
+    node = root
+    if not root.children:
+        return False
+    if not prefix:
+        return False
+    for char in prefix:
+        char_not_found = True
+        for child in node.children:
+            if child.char == char:
+                char_not_found = False
+                node = child
+                break
+        if char_not_found:
+            return False   # It not in dictionary -> don't sucess delete it
+    if node.word_finished == 1:
+        node.word_finished = -1
+        return True
+    return False   
 def make_tree():
     filePath = os.path.join(os.path.dirname(__file__), "data2.txt")
     f = open(filePath, 'r')
@@ -83,7 +99,6 @@ def test(find_name):
     filePath = os.path.join(os.path.dirname(__file__), "data2.txt")
     f = open(filePath, 'r')
     f.seek(idx)
-    print(idx)
     mean = f.readline().split(':')[1]
     return {
         "name": find_name,
