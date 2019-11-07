@@ -122,4 +122,4 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 DEBUG = True
-root_tree = None
+Project_prepare = False

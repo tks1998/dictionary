@@ -1,0 +1,3 @@
+go di
+sleep ngu
+eat an
