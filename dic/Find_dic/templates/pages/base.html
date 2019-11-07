@@ -23,13 +23,28 @@
 </head>
 
 <body>
-    <div style="background: rgb(0, 0, 0); position: sticky;">
-        <a href="/">
-            <button class="btn btn-light btn-lg m-3">
-                HOME
-            </button>
-        </a>
-        <span class="text-light text-center">Tra cứu trừ điển</span>
+        
+
+
+    <div style="background: rgb(14, 30, 100); " class="p-2">
+        <nav class="navbar navbar-expand-lg navbar-dark indigo mb-2">
+
+                <!-- Navbar brand -->
+                <a class="navbar-brand" href="/">Tra cứu từ điển</a>
+              
+                <!-- Collapsible content -->
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              
+                <form class="form-inline ml-auto" action="search" method="post">
+                    {% csrf_token %}
+                    <div class="md-form my-0">
+                      <input class="form-control" type="text" name="chuoi" placeholder="Search" aria-label="Search">
+                    </div>
+                    <button href="#!" class="btn btn-outline-white btn-md my-0 ml-sm-2" type="submit">Search</button>
+                  </form>
+              
+                </div>
+        </nav>
     </div>
     <div class="margin"></div>
     {% block content %}

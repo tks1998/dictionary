@@ -3,10 +3,27 @@
 {% block title %}{{ProductName}}{% endblock %}
 
 {% block content %}
-<b>thong tin tra cuu</b>
 
-<div class="row">
-    <div class="col-md-1">{{name}}</div>
-    <div class="col-md-1">{{mean}}</div>
+
+<div class="container mt-4">
+    <b>Thông tin tra cứu</b>
+    <div class="row display-4 mt-3">
+        <div class="col-4 border border-info p-3">{{name}}</div>
+        <div class="col-7 border border-info p-3 ml-1">
+            {{mean}} <br>
+            <div class="btn-group mt-4">
+                    <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Action
+                    </button>
+                        <div class="dropdown-menu">
+                        <a class="dropdown-item" name="edit" href="#">Sửa</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" name="del" href="#">Xóa</a>
+                        </div>
+                </div>
+        </div>
+    </div>
+
+    
 </div>
 {% endblock %}
